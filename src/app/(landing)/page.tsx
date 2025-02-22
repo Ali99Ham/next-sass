@@ -1,5 +1,7 @@
 // import { Heading } from "@/components/heading"
+import { Heading } from "@/components/Heading";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
+import { MockDiscordUI } from "@/components/MockDiscortUI";
 import { ShinyButton } from "@/components/ShinnyButton";
 import { Check, Star } from "lucide-react";
 // import { ShinyButton } from "@/components/shiny-button"
@@ -18,11 +20,13 @@ const Page = () => {
         <MaxWidthWrapper className="text-center">
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
             <div>
-              <span>Real-Time SaaS Insights,</span>
-              <br />
-              <span className="relative bg-gradient-to-r from-brand-700 to-brand-800 text-transparent bg-clip-text">
-                Delivered to Your Discord
-              </span>
+              <Heading>
+                <span>Real-Time SaaS Insights,</span>
+                <br />
+                <span className="relative bg-gradient-to-r from-brand-700 to-brand-800 text-transparent bg-clip-text">
+                  Delivered to Your Discord
+                </span>
+              </Heading>
             </div>
 
             <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
