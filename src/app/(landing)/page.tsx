@@ -1,19 +1,31 @@
-// import { Heading } from "@/components/heading"
 import { Heading } from "@/components/Heading";
 import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
-import { MockDiscordUI } from "@/components/MockDiscortUI";
-import { ShinyButton } from "@/components/ShinnyButton";
 import { Check, Star } from "lucide-react";
-// import { ShinyButton } from "@/components/shiny-button"
-// import { MockDiscordUI } from "@/components/mock-discord-ui"
-// import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list"
-// import { DiscordMessage } from "@/components/discord-message"
+import { ShinyButton } from "@/components/ShinnyButton";
+import { MockDiscordUI } from "@/components/MockDiscortUI";
+import { AnimatedList } from "@/components/magicui/animated-list";
+import { DiscordMessage } from "@/components/DiscordMessage";
 import Image from "next/image";
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-// import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
-// import { Icons } from "@/components/icons"
+// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+// import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Icons } from "@/components/Icons";
 
 const Page = () => {
+  const codeSnippet = `await fetch("http://localhost:3000/api/v1/events", {
+  method: "POST",
+  body: JSON.stringify({
+    category: "sale",
+    fields: {
+      plan: "PRO",
+      email: "zoe.martinez2001@email.com",
+      amount: 49.00
+    }
+  }),
+  headers: {
+    Authorization: "Bearer <YOUR_API_KEY>"
+  }
+})`;
+
   return (
     <>
       <section className="relative py-24 sm:py-32 bg-brand-25">
@@ -65,7 +77,7 @@ const Page = () => {
         <div className="relative mx-auto">
           <MaxWidthWrapper className="relative">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              {/* <MockDiscordUI>
+              <MockDiscordUI>
                 <AnimatedList>
                   <DiscordMessage
                     avatarSrc="/brand-asset-profile-picture.png"
@@ -108,7 +120,7 @@ const Page = () => {
                     }}
                   />
                 </AnimatedList>
-              </MockDiscordUI> */}
+              </MockDiscordUI>
             </div>
           </MaxWidthWrapper>
         </div>
@@ -118,7 +130,7 @@ const Page = () => {
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>
             <h2 className="text-center text-base/7 font-semibold text-brand-600">Intuitive Monitoring</h2>
-            {/* <Heading>Stay ahead with real-time insights</Heading> */}
+            <Heading>Stay ahead with real-time insights</Heading>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
@@ -132,8 +144,8 @@ const Page = () => {
                     Real-time notifications
                   </p>
                   <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Get notified about critical events the moment they happen, no matter if you are at home or on the
-                    go.
+                    Get notified about critical events the moment they happen, no matter if you &#39;re at home or on
+                    the go.
                   </p>
                 </div>
 
@@ -232,9 +244,9 @@ const Page = () => {
                       </div>
                     </div>
 
-                    <div className="overflow-hidden">
+                    {/* <div className="overflow-hidden">
                       <div className="max-h-[30rem]">
-                        {/* <SyntaxHighlighter
+                        <SyntaxHighlighter
                           language="typescript"
                           style={{
                             ...oneDark,
@@ -250,9 +262,9 @@ const Page = () => {
                           }}
                         >
                           {codeSnippet}
-                        </SyntaxHighlighter> */}
+                        </SyntaxHighlighter>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -267,7 +279,7 @@ const Page = () => {
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>
             <h2 className="text-center text-base/7 font-semibold text-brand-600">Real-World Experiences</h2>
-            {/* <Heading className="text-center">What our customers say</Heading> */}
+            <Heading className="text-center">What our customers say</Heading>
           </div>
 
           <div className="mx-auto grid max-w-2xl grid-cols-1 px-4 lg:mx-0 lg:max-w-none lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
@@ -282,7 +294,7 @@ const Page = () => {
               </div>
 
               <p className="text-base sm:text-lg lg:text-lg/8 font-medium tracking-tight text-brand-950 text-center lg:text-left text-pretty">
-                PingPanda has been a game-changer for me. I have been using it for two months now and seeing sales pop
+                PingPanda has been a game-changer for me. I&#39;ve been using it for two months now and seeing sales pop
                 up in real-time is super satisfying.
               </p>
 
@@ -294,13 +306,13 @@ const Page = () => {
                   width={48}
                   height={48}
                 />
-                {/* <div className="flex flex-col items-center sm:items-start">
+                <div className="flex flex-col items-center sm:items-start">
                   <p className="font-semibold flex items-center">
                     Freya Larsson
                     <Icons.verificationBadge className="size-4 inline-block ml-1.5" />
                   </p>
                   <p className="text-sm text-gray-600">@itsfreya</p>
-                </div> */}
+                </div>
               </div>
             </div>
 
@@ -315,8 +327,8 @@ const Page = () => {
               </div>
 
               <p className="text-base sm:text-lg lg:text-lg/8 font-medium tracking-tight text-brand-950 text-center lg:text-left text-pretty">
-                PingPanda has been paying off for our SaaS. Nice to have simple way to see how we are doing day-to-day.
-                Definitely makes our lives easier.
+                PingPanda&#39;s been paying off for our SaaS. Nice to have simple way to see how we&#39;re doing
+                day-to-day. Definitely makes our lives easier.
               </p>
 
               <div className="flex flex-col justify-center lg:justify-start sm:flex-row items-center sm:items-start gap-4 mt-2">
@@ -327,23 +339,23 @@ const Page = () => {
                   width={48}
                   height={48}
                 />
-                {/* <div className="flex flex-col items-center sm:items-start">
+                <div className="flex flex-col items-center sm:items-start">
                   <p className="font-semibold flex items-center">
                     Kai Durant
                     <Icons.verificationBadge className="size-4 inline-block ml-1.5" />
                   </p>
                   <p className="text-sm text-gray-600">@kdurant_</p>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* <ShinyButton
+          <ShinyButton
             href="/sign-up"
             className="relative z-10 h-14 w-full max-w-xs text-base shadow-lg transition-shadow duration-300 hover:shadow-xl"
           >
             Start For Free Today
-          </ShinyButton> */}
+          </ShinyButton>
         </MaxWidthWrapper>
       </section>
     </>
