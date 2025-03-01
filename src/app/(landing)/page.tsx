@@ -4,11 +4,11 @@ import { Check, Star } from "lucide-react";
 import { ShinyButton } from "@/components/ShinnyButton";
 import { MockDiscordUI } from "@/components/MockDiscortUI";
 import { AnimatedList } from "@/components/magicui/animated-list";
-import { DiscordMessage } from "@/components/DiscordMessage";
 import Image from "next/image";
-// import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-// import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { Icons } from "@/components/Icons";
+import { DiscordMessage } from "@/components/DiscordMessage";
 
 const Page = () => {
   const codeSnippet = `await fetch("http://localhost:3000/api/v1/events", {
@@ -244,7 +244,7 @@ const Page = () => {
                       </div>
                     </div>
 
-                    {/* <div className="overflow-hidden">
+                    <div className="overflow-hidden">
                       <div className="max-h-[30rem]">
                         <SyntaxHighlighter
                           language="typescript"
@@ -264,7 +264,7 @@ const Page = () => {
                           {codeSnippet}
                         </SyntaxHighlighter>
                       </div>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
               </div>
