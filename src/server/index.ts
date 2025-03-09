@@ -14,8 +14,7 @@ const app = new Hono().basePath("/api").use(cors());
  * All routers added in /server/routers should be manually added here.
  */
 
-const appRouter = app.route("/auth", authRouter);
-// .route("/category", categoryRouter)
+const appRouter = app.route("/auth", authRouter).route("/category", categoryRouter);
 // .route("/payment", paymentRouter)
 // .route("/project", projectRouter);
 
