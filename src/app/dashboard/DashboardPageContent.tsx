@@ -2,14 +2,14 @@
 
 import { LoadingSpinner } from "@/components/LoaderSpinner";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Modal } from "@/components/ui/modal";
+import { Modal } from "@/components/ui/Modal";
 import { client } from "@/lib/client";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { format, formatDistanceToNow } from "date-fns";
 import { ArrowRight, BarChart2, Clock, Database, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { DashboardEmptyState } from "./dashboard-empty-state";
+import { DashboardEmptyState } from "./DashboardEmptySpace";
 
 export const DashboardPageContent = () => {
   const [deletingCategory, setDeletingCategory] = useState<string | null>(null);
@@ -123,7 +123,7 @@ export const DashboardPageContent = () => {
           <div>
             <h2 className="text-lg/7 font-medium tracking-tight text-gray-950">Delete Category</h2>
             <p className="text-sm/6 text-gray-600">
-              Are you sure you want to delete the category "{deletingCategory}"? This action cannot be undone.
+              Are you sure you want to delete the category {deletingCategory}? This action cannot be undone.
             </p>
           </div>
 
