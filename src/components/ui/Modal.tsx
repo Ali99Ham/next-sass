@@ -1,17 +1,17 @@
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { cn } from "@/utils";
-import { Dispatch, ReactNode, SetStateAction } from "react";
-import { Drawer } from "vaul";
-import { Dialog, DialogContent, DialogTitle } from "./dialog";
+import { useMediaQuery } from "@/hooks/use-media-query"
+import { cn } from "@/utils"
+import { Dispatch, ReactNode, SetStateAction } from "react"
+import { Drawer } from "vaul"
+import { Dialog, DialogContent, DialogTitle } from "./dialog"
 
 interface ModalProps {
-  children?: ReactNode;
-  className?: string;
-  showModal?: boolean;
-  setShowModal?: Dispatch<SetStateAction<boolean>>;
-  onClose?: () => void;
-  desktopOnly?: boolean;
-  preventDefaultClose?: boolean;
+  children?: ReactNode
+  className?: string
+  showModal?: boolean
+  setShowModal?: Dispatch<SetStateAction<boolean>>
+  onClose?: () => void
+  desktopOnly?: boolean
+  preventDefaultClose?: boolean
 }
 
 export const Modal = ({
@@ -25,17 +25,17 @@ export const Modal = ({
 }: ModalProps) => {
   const closeModal = ({ dragged }: { dragged?: boolean }) => {
     if (preventDefaultClose && !dragged) {
-      return;
+      return
     }
 
-    onClose && onClose();
+    onClose && onClose()
 
     if (setShowModal) {
-      setShowModal(false);
+      setShowModal(false)
     }
-  };
+  }
 
-  const { isMobile } = useMediaQuery();
+  const { isMobile } = useMediaQuery()
 
   if (isMobile && !desktopOnly) {
     return (
@@ -43,7 +43,7 @@ export const Modal = ({
         open={setShowModal ? showModal : true}
         onOpenChange={(open) => {
           if (!open) {
-            closeModal({ dragged: true });
+            closeModal({ dragged: true })
           }
         }}
       >
@@ -63,7 +63,7 @@ export const Modal = ({
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>
-    );
+    )
   }
 
   return (
@@ -71,12 +71,12 @@ export const Modal = ({
       open={setShowModal ? showModal : true}
       onOpenChange={(open) => {
         if (!open) {
-          closeModal({ dragged: true });
+          closeModal({ dragged: true })
         }
       }}
     >
       <DialogTitle className="sr-only">Dialog</DialogTitle>
       <DialogContent>{children}</DialogContent>
     </Dialog>
-  );
-};
+  )
+}

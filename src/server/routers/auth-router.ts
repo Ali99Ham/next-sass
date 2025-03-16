@@ -1,23 +1,24 @@
-import { db } from "@/db";
-import { currentUser } from "@clerk/nextjs/server";
-import { router } from "../__internals/router";
-import { publicProcedure } from "../procedures";
+import { db } from "@/db"
+import { currentUser } from "@clerk/nextjs/server"
+import { HTTPException } from "hono/http-exception"
+import { router } from "../__internals/router"
+import { publicProcedure } from "../procedures"
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic"
 
 export const authRouter = router({
-  getDatabaseSyncStatus: publicProcedure.query(async ({ c }) => {
-    const auth = await currentUser();
+  getDatabaseSyncStatus: publicProcedure.query(async ({ c, ctx }) => {
+    const auth = await currentUser()
 
     if (!auth) {
-      return c.json({ isSynced: false });
+      return c.json({ isSynced: false })
     }
 
     const user = await db.user.findFirst({
       where: { externalId: auth.id },
-    });
+    })
 
-    console.log("USER IN DB:", user);
+    console.log('USER IN DB:', user);
 
     if (!user) {
       await db.user.create({
@@ -26,11 +27,11 @@ export const authRouter = router({
           externalId: auth.id,
           email: auth.emailAddresses[0].emailAddress,
         },
-      });
+      })
     }
 
-    return c.json({ isSynced: true });
+    return c.json({ isSynced: true })
   }),
-});
+})
 
 // route.ts
