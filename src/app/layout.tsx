@@ -1,28 +1,28 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Providers } from "@/components/Providers";
-import { EB_Garamond } from "next/font/google";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { Providers } from "@/components/providers"
+import { EB_Garamond } from "next/font/google"
+import { cn } from "@/utils"
 
-import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css"
+import { ClerkProvider } from "@clerk/nextjs"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 const eb_garamond = EB_Garamond({
   subsets: ["latin"],
   variable: "--font-heading",
-});
+})
 
 export const metadata: Metadata = {
   title: "jStack App",
   description: "Created using jStack",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <ClerkProvider>
@@ -34,5 +34,5 @@ export default function RootLayout({
         </body>
       </html>
     </ClerkProvider>
-  );
+  )
 }

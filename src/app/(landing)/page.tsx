@@ -1,14 +1,14 @@
-import { Heading } from "@/components/Heading";
-import { MaxWidthWrapper } from "@/components/MaxWidthWrapper";
-import { Check, Star } from "lucide-react";
-import { ShinyButton } from "@/components/ShinnyButton";
-import { MockDiscordUI } from "@/components/MockDiscortUI";
-import { AnimatedList } from "@/components/magicui/animated-list";
-import Image from "next/image";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Icons } from "@/components/Icons";
-import { DiscordMessage } from "@/components/DiscordMessage";
+import { Heading } from "@/components/heading"
+import { MaxWidthWrapper } from "@/components/max-width-wrapper"
+import { Check, Star } from "lucide-react"
+import { ShinyButton } from "@/components/shiny-button"
+import { MockDiscordUI } from "@/components/mock-discord-ui"
+import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list"
+import { DiscordMessage } from "@/components/discord-message"
+import Image from "next/image"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism"
+import { Icons } from "@/components/icons"
 
 const Page = () => {
   const codeSnippet = `await fetch("http://localhost:3000/api/v1/events", {
@@ -24,7 +24,7 @@ const Page = () => {
   headers: {
     Authorization: "Bearer <YOUR_API_KEY>"
   }
-})`;
+})`
 
   return (
     <>
@@ -42,9 +42,12 @@ const Page = () => {
             </div>
 
             <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-              PingPanda is the easiest way to monitor your SaaS. Get instant notifications for{" "}
-              <span className="font-semibold text-gray-700">sales, new users, or any other event</span> sent directly to
-              your Discord.
+              PingPanda is the easiest way to monitor your SaaS. Get instant
+              notifications for{" "}
+              <span className="font-semibold text-gray-700">
+                sales, new users, or any other event
+              </span>{" "}
+              sent directly to your Discord.
             </p>
 
             <ul className="space-y-2 text-base/7 text-gray-600 text-left flex flex-col items-start">
@@ -129,7 +132,9 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>
-            <h2 className="text-center text-base/7 font-semibold text-brand-600">Intuitive Monitoring</h2>
+            <h2 className="text-center text-base/7 font-semibold text-brand-600">
+              Intuitive Monitoring
+            </h2>
             <Heading>Stay ahead with real-time insights</Heading>
           </div>
 
@@ -144,8 +149,8 @@ const Page = () => {
                     Real-time notifications
                   </p>
                   <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Get notified about critical events the moment they happen, no matter if you &#39;re at home or on
-                    the go.
+                    Get notified about critical events the moment they happen,
+                    no matter if you're at home or on the go.
                   </p>
                 </div>
 
@@ -173,8 +178,8 @@ const Page = () => {
                     Track Any Event
                   </p>
                   <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    From new user signups to successful payments, PingPanda notifies you for all critical events in your
-                    SaaS.
+                    From new user signups to successful payments, PingPanda
+                    notifies you for all critical events in your SaaS.
                   </p>
                 </div>
                 <div className="flex flex-1 items-center justify-center px-8 max-lg:pb-12 max-lg:pt-10 sm:px-10 lg:pb-2">
@@ -200,8 +205,8 @@ const Page = () => {
                     Track Any Properties
                   </p>
                   <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Add any custom data you like to an event, such as a user email, a purchase amount or an exceeded
-                    quota.
+                    Add any custom data you like to an event, such as a user
+                    email, a purchase amount or an exceeded quota.
                   </p>
                 </div>
 
@@ -229,8 +234,8 @@ const Page = () => {
                     Easy Integration
                   </p>
                   <p className="mt-2 max-w-lg text-sm/6 text-gray-600 max-lg:text-center">
-                    Connect PingPanda with your existing workflows in minutes and call our intuitive logging API from
-                    any language.
+                    Connect PingPanda with your existing workflows in minutes
+                    and call our intuitive logging API from any language.
                   </p>
                 </div>
 
@@ -278,7 +283,9 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 bg-white">
         <MaxWidthWrapper className="flex flex-col items-center gap-16 sm:gap-20">
           <div>
-            <h2 className="text-center text-base/7 font-semibold text-brand-600">Real-World Experiences</h2>
+            <h2 className="text-center text-base/7 font-semibold text-brand-600">
+              Real-World Experiences
+            </h2>
             <Heading className="text-center">What our customers say</Heading>
           </div>
 
@@ -294,8 +301,9 @@ const Page = () => {
               </div>
 
               <p className="text-base sm:text-lg lg:text-lg/8 font-medium tracking-tight text-brand-950 text-center lg:text-left text-pretty">
-                PingPanda has been a game-changer for me. I&#39;ve been using it for two months now and seeing sales pop
-                up in real-time is super satisfying.
+                PingPanda has been a game-changer for me. I've been using it for
+                two months now and seeing sales pop up in real-time is super
+                satisfying.
               </p>
 
               <div className="flex flex-col justify-center lg:justify-start sm:flex-row items-center sm:items-start gap-4 mt-2">
@@ -327,8 +335,9 @@ const Page = () => {
               </div>
 
               <p className="text-base sm:text-lg lg:text-lg/8 font-medium tracking-tight text-brand-950 text-center lg:text-left text-pretty">
-                PingPanda&#39;s been paying off for our SaaS. Nice to have simple way to see how we&#39;re doing
-                day-to-day. Definitely makes our lives easier.
+                PingPanda's been paying off for our SaaS. Nice to have simple
+                way to see how we're doing day-to-day. Definitely makes our
+                lives easier.
               </p>
 
               <div className="flex flex-col justify-center lg:justify-start sm:flex-row items-center sm:items-start gap-4 mt-2">
@@ -359,7 +368,7 @@ const Page = () => {
         </MaxWidthWrapper>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page

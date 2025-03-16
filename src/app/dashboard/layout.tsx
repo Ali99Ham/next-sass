@@ -1,23 +1,23 @@
-"use client";
+"use client"
 
-import { buttonVariants } from "@/components/ui/button";
-import { Modal } from "@/components/ui/Modal";
-import { cn } from "@/utils";
-import { UserButton } from "@clerk/nextjs";
-import { Gem, Home, Key, LucideIcon, Menu, Settings, X } from "lucide-react";
-import Link from "next/link";
-import { PropsWithChildren, useState } from "react";
-import { Drawer } from "vaul";
+import { buttonVariants } from "@/components/ui/button"
+import { Modal } from "@/components/ui/modal"
+import { cn } from "@/utils"
+import { UserButton } from "@clerk/nextjs"
+import { Gem, Home, Key, LucideIcon, Menu, Settings, X } from "lucide-react"
+import Link from "next/link"
+import { PropsWithChildren, useState } from "react"
+import { Drawer } from "vaul"
 
 interface SidebarItem {
-  href: string;
-  icon: LucideIcon;
-  text: string;
+  href: string
+  icon: LucideIcon
+  text: string
 }
 
 interface SidebarCategory {
-  category: string;
-  items: SidebarItem[];
+  category: string
+  items: SidebarItem[]
 }
 
 const SIDEBAR_ITEMS: SidebarCategory[] = [
@@ -40,7 +40,7 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
       },
     ],
   },
-];
+]
 
 const Sidebar = ({ onClose }: { onClose?: () => void }) => {
   return (
@@ -55,7 +55,9 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
         <ul>
           {SIDEBAR_ITEMS.map(({ category, items }) => (
             <li key={category} className="mb-4 md:mb-8">
-              <p className="text-xs font-medium leading-6 text-zinc-500">{category}</p>
+              <p className="text-xs font-medium leading-6 text-zinc-500">
+                {category}
+              </p>
               <div className="-mx-2 flex flex-1 flex-col">
                 {items.map((item, i) => (
                   <Link
@@ -90,11 +92,11 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Layout = ({ children }: PropsWithChildren) => {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
     <div className="relative h-screen flex flex-col md:flex-row bg-white overflow-hidden">
@@ -109,7 +111,10 @@ const Layout = ({ children }: PropsWithChildren) => {
           <p className="text-lg/7 font-semibold text-brand-900">
             Ping<span className="text-brand-700">Panda</span>
           </p>
-          <button onClick={() => setIsDrawerOpen(true)} className="text-gray-500 hover:text-gray-600">
+          <button
+            onClick={() => setIsDrawerOpen(true)}
+            className="text-gray-500 hover:text-gray-600"
+          >
             <Menu className="size-6" />
           </button>
         </div>
@@ -117,16 +122,25 @@ const Layout = ({ children }: PropsWithChildren) => {
         {/* main content area */}
         <div className="flex-1 overflow-y-auto bg-gray-50 shadow-md p-4 md:p-6 relative z-10">
           <div className="relative min-h-full flex flex-col">
-            <div className="h-full flex flex-col flex-1 space-y-4">{children}</div>
+            <div className="h-full flex flex-col flex-1 space-y-4">
+              {children}
+            </div>
           </div>
         </div>
 
-        <Modal className="p-4" showModal={isDrawerOpen} setShowModal={setIsDrawerOpen}>
+        <Modal
+          className="p-4"
+          showModal={isDrawerOpen}
+          setShowModal={setIsDrawerOpen}
+        >
           <div className="flex justify-between items-center mb-4">
             <p className="text-lg/7 font-semibold text-brand-900">
               Ping<span className="text-brand-700">Panda</span>
             </p>
-            <button aria-label="Close modal" onClick={() => setIsDrawerOpen(false)}>
+            <button
+              aria-label="Close modal"
+              onClick={() => setIsDrawerOpen(false)}
+            >
               <X className="size-6" />
             </button>
           </div>
@@ -135,7 +149,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         </Modal>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
